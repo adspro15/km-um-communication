@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Nt.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="CvcSv\Cvc.h" />
+    <ClInclude Include="CvcSv\CvcInternal.h" />
+    <ClInclude Include="hde\hde64.h" />
+    <ClInclude Include="hde\pstdint.h" />
+    <ClInclude Include="hde\table64.h" />
+    <ClInclude Include="Native\Native.h" />
+    <ClInclude Include="Native\Pe.h" />
+    <ClInclude Include="Native\Ut.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CvcSv\Cvc.c" />
+    <ClCompile Include="CvcSv\CvcInternal.c" />
+    <ClCompile Include="hde\hde64.c" />
+    <ClCompile Include="Native\Pe.c" />
+    <ClCompile Include="Native\Ut.c" />
+    <ClCompile Include="Main.c" />
+  </ItemGroup>
+</Project>

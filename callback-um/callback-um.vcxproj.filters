@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.c" />
+    <ClCompile Include="stdafx.c" />
+    <ClCompile Include="CRT\Alloc.c" />
+    <ClCompile Include="CRT\CRT.c" />
+    <ClCompile Include="CRT\IsCtype.c" />
+    <ClCompile Include="CRT\Memory.c" />
+    <ClCompile Include="CRT\Sprintf.c" />
+    <ClCompile Include="CRT\String.c" />
+    <ClCompile Include="CRT\WString.c" />
+    <ClCompile Include="Cse\Cse.c" />
+    <ClCompile Include="CvcCl\Cvc.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="CRT\Alloc.h" />
+    <ClInclude Include="CRT\CRT.h" />
+    <ClInclude Include="CRT\List.h" />
+    <ClInclude Include="CRT\Semaphore.h" />
+    <ClInclude Include="CRT\Sprintf.h" />
+    <ClInclude Include="CRT\String.h" />
+    <ClInclude Include="CRT\WString.h" />
+    <ClInclude Include="Cse\Cse.h" />
+    <ClInclude Include="CvcCl\Cvc.h" />
+    <ClInclude Include="Declaration.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CvcCl\Dispatcher.asm" />
+  </ItemGroup>
+</Project>
