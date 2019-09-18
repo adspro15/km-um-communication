@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="server.cpp" />
+    <ClCompile Include="util.c" />
+    <ClCompile Include="ksocket\berkeley.c" />
+    <ClCompile Include="ksocket\ksocket.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="packet_handler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="server_shared.h" />
+    <ClInclude Include="sockets.h" />
+    <ClInclude Include="stdint.h" />
+    <ClInclude Include="ksocket\berkeley.h" />
+    <ClInclude Include="ksocket\ksocket.h" />
+    <ClInclude Include="imports.h" />
+    <ClInclude Include="log.h" />
+  </ItemGroup>
+</Project>

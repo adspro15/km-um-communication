@@ -1,0 +1,86 @@
+;
+; socket-km.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=socket-km.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+
+[DestinationDirs]
+DefaultDestDir = 12
+socket-km_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+socket-km.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%socket-km.DeviceDesc%=socket-km_Device, Root\socket-km ; TODO: edit hw-id
+
+[socket-km_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+socket-km.sys
+
+;-------------- Service installation
+[socket-km_Device.NT.Services]
+AddService = socket-km,%SPSVCINST_ASSOCSERVICE%, socket-km_Service_Inst
+
+; -------------- socket-km driver install sections
+[socket-km_Service_Inst]
+DisplayName    = %socket-km.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\socket-km.sys
+
+;
+;--- socket-km_Device Coinstaller installation ------
+;
+
+[socket-km_Device.NT.CoInstallers]
+AddReg=socket-km_Device_CoInstaller_AddReg
+CopyFiles=socket-km_Device_CoInstaller_CopyFiles
+
+[socket-km_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[socket-km_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[socket-km_Device.NT.Wdf]
+KmdfService =  socket-km, socket-km_wdfsect
+[socket-km_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "socket-km Installation Disk"
+socket-km.DeviceDesc = "socket-km Device"
+socket-km.SVCDESC = "socket-km Service"
